@@ -9,6 +9,7 @@ This is type utils to generate type of non-negative integer number in specific r
 Returns numeric type which will contain only positive integer values from `From` value to `To` value exclusively.
 
 ```typescript
+import { Range } from 'range-type'
 type D = Range<1, 10> // 1 | 2 | 3 | 4 | 5
 ```
 
@@ -17,6 +18,7 @@ type D = Range<1, 10> // 1 | 2 | 3 | 4 | 5
 Returns numeric type which will contain only positive integer values from `0` to `To` value exclusively.
 
 ```typescript
+import { RangeTo } from 'range-type'
 type C = RangeTo<3> // 0 | 1 | 2
 ```
 
