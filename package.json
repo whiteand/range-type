@@ -1,11 +1,11 @@
 {
-  "name": "template-typescript-package",
+  "name": "range-type",
   "version": "0.0.0-development",
-  "description": "A boilerplate repo for publishing typescript packages to npm",
+  "description": "Utils for working with numbers of specific range.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "lint": "eslint './src/**/*.{js,ts,tsx}'",
+    "lint": "eslint src/**/*.{ts,js,ts,tsx}",
     "test": "jest",
     "test:watch": "jest --watchAll",
     "build": "tsc",
@@ -15,22 +15,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/beeman/template-typescript-package.git"
+    "url": "https://github.com/whiteand/range-type.git"
   },
   "keywords": [
-    "TypeScript",
-    "Package",
-    "Starter"
+    "types",
+    "utils",
+    "range"
   ],
   "author": {
-    "name": "Bram Borggreve",
-    "email": "borggreve@gmail.com"
+    "name": "Andrew Beletskiy",
+    "email": "AndrewBeletskiy@gmail.com"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/beeman/template-typescript-package/issues"
+    "url": "https://github.com/whiteand/range-type/issues"
   },
-  "homepage": "https://github.com/beeman/template-typescript-package#readme",
+  "homepage": "https://github.com/whiteand/range-type#readme",
   "husky": {
     "hooks": {
       "pre-commit": "yarn lint && npm test",
