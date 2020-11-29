@@ -4828,17 +4828,30 @@ interface SuccDict {
   98: 99
   99: 100
 }
-type Num = keyof SuccDict
-export type Next<N extends Num> = SuccDict[N]
+export type Num = keyof SuccDict
+export type Next<N extends number> = N extends keyof SuccDict ? SuccDict[N] : never
 
-type PrevInd<N extends Num | 100> = {
+type PrevInd<N extends number> = {
   [k in Num]: Next<k> extends N ? k : never
 }
 
-export type Previous<N extends Num | 100> = PrevInd<N>[keyof PrevInd<N>]
+export type Previous<N extends number | 100> = PrevInd<N>[keyof PrevInd<N>]
 
 export type RangeTo<T extends number> = T extends keyof IRangesDict ? IRangesDict[T] : never // If you get never, write to andrewbeletskiy@gmail.com and I will extend RangeTo type
 
 type Filter<Full, Part> = Full extends Part ? never : Full
 
-export type Range<From extends number, To extends number> = Filter<RangeTo<To>, RangeTo<From>>
+type SimpleRange<From extends number, To extends number> = Filter<RangeTo<To>, RangeTo<From>>
+
+export type Range<
+  From extends number,
+  To extends number,
+  IncludeTo extends boolean = false,
+  IncludeFrom extends boolean = true
+> = IncludeFrom extends true
+  ? IncludeTo extends true
+    ? SimpleRange<From, Next<To>>
+    : SimpleRange<From, To>
+  : IncludeTo extends true
+  ? SimpleRange<Next<From>, Next<To>>
+  : SimpleRange<Next<From>, To>
