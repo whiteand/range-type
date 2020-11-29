@@ -60,7 +60,9 @@
     "dist/**/*"
   ],
   "release": {
-    "branches": ["main"]
+    "branches": [
+      "main"
+    ]
   },
   "dependencies": {}
 }
